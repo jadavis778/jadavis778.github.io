@@ -6,34 +6,41 @@ document.addEventListener('DOMContentLoaded', function () {
   const hamburgerMenu = document.querySelector('.hamburger-menu-items');
   const hamburgerMenuItems = document.querySelectorAll('.hamburger-menu-items li');
 
-  hamburgerIcon.addEventListener('click', function () {
-    hamburgerMenu.classList.toggle('show-menu');
-    hamburgerMenu.classList.toggle('slide-in');
-  });
-
-  hamburgerMenuItems.forEach(item => {
-    item.addEventListener('click', function () {
-      hamburgerMenu.classList.remove('show-menu');
-      hamburgerMenu.classList.remove('slide-in');
+  if (hamburgerIcon && hamburgerMenu && hamburgerMenuItems) {
+    hamburgerIcon.addEventListener('click', function () {
+      hamburgerMenu.classList.toggle('show-menu');
+      hamburgerMenu.classList.toggle('slide-in');
     });
-  });
+
+    hamburgerMenuItems.forEach(item => {
+      item.addEventListener('click', function () {
+        hamburgerMenu.classList.remove('show-menu');
+        hamburgerMenu.classList.remove('slide-in');
+      });
+    });
+  }
 
   // Add 'active' class to the current Gallery button (highlight it) and filter gallery content
   var btnContainer = document.getElementsByClassName("gallery-nav-wrapper")[0];
-  var btns = btnContainer.getElementsByClassName("gallery-btn");
-  for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function(){
-      var current = document.getElementsByClassName("active");
-      if (current.length > 0) {
-        current[0].className = current[0].className.replace(" active", "");
-      }
-      this.className += " active";
-      filterSelection(this.innerHTML.toLowerCase());
-    });
+  if (btnContainer) {
+    var btns = btnContainer.getElementsByClassName("gallery-btn");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function(){
+        var current = document.getElementsByClassName("active");
+        if (current.length > 0) {
+          current[0].className = current[0].className.replace(" active", "");
+        }
+        this.className += " active";
+        if (typeof filterSelection === 'function') {
+          filterSelection(this.innerHTML.toLowerCase());
+        }
+      });
+    }
   }
+});
   // Initially show all Gallery columns by executing the function 
   filterSelection("all");
-});
+//});
 
 
 
