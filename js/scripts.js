@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
 // ######################
 // Gallery Filtering
 // ###############
@@ -84,4 +85,27 @@ function w3RemoveClass(element, name) {
     }
   }
   element.className = arr1.join(" ");
+}
+
+
+
+
+// ######################
+// Gallery Modal
+// ###############
+
+function openGalleryModal(imageSrc) {
+  const modal = document.getElementById('gallery-modal');
+  const modalImg = modal.querySelector('.gallery-modal-content');
+  
+  modalImg.src = imageSrc;
+
+  modal.classList.add('show');
+  document.querySelector('.gallery-modal-overlay').classList.add('show');
+}
+
+function closeGalleryModal() {
+  const modal = document.getElementById('gallery-modal');
+  modal.classList.remove('show');
+  document.querySelector('.gallery-modal-overlay').classList.remove('show');
 }
