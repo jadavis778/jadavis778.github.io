@@ -1,8 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600');
 
-/* ###################### */
-/* General styles */
-/* ############### */
+/* ##################################################
+   ------------ General styles ------------
+   Strctured for mobile screens first with larger 
+   screens handled via media queries at the end
+   ################################################## */
+
+
+
+   
+/* ------------ General styles ------------ */
 
 body, html {
     margin: 0;
@@ -10,7 +17,6 @@ body, html {
     padding: 1%;
     font-family: 'Montserrat', sans-serif;
     background-color: rgb(240, 240, 240);
-    height: 100%;
 }
 
 p, blockquote {
@@ -21,9 +27,7 @@ p, blockquote {
 
 
 
-/* ###################### */
-/* Header/banner styles for mobile resolution */
-/* ############### */
+/* ------------ Header/banner styles ------------ */
 
 .header-container {
   text-align: right;
@@ -40,7 +44,7 @@ header {
 }
 
 /* container position=relative, both element position=absolute to stack them */
-.nav-container nav {
+.header-nav-container nav {
     position: relative;
 }
 
@@ -114,6 +118,7 @@ header {
   to { transform: translateX(0); }
 }
 
+
 /* Horizontal site menu style */
 .site-menu {
   position: absolute;
@@ -154,279 +159,7 @@ header {
 
 
 
-/* ###################### */
-/* Homepage styles for mobile resolution */
-/* ############### */
-
-/* Create image with parallax scrolling effect */
-.home-parallax {
-  background-image: url('../img/painting/paint_room.jpg');
-  height: 600px;    /* Set fixed height for the parallax section */
-  width: 100%;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;   /* Enable absolute positioning of children */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.home-header {
-  color: white;
-  font-size: 2em;
-  text-shadow: 6px 4px 4px rgb(0, 0, 0, 0.5);
-  text-align: center;
-  padding: 20px;
-}
-
-/* Mission content wrappers */
-.home-sales-wrapper {
-  overflow: hidden;
-}
-
-.home-mission-container {
-  width: 100%;
-  background: #272727;
-  padding: 4em 0 4em;
-}
-
-.home-repair-container {
-  width: 100%;
-  background: #707070;
-  position: relative;
-  padding-top: 10px;
-  box-sizing: border-box;
-  z-index: 1;
-}
-
-.home-repair-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 16%; /* Adjust this to control the height of the skewed part */
-  background: inherit;
-  transform: skewY(-3deg); /* Adjust this value to control the angle of the skew */
-  transform-origin: 0% 0%;
-  z-index: -1;
-}
-
-.home-repair-container::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 16%; /* Adjust this to control the height of the skewed part */
-  background: inherit;
-  transform: skewY(3deg); /* Adjust this value to control the angle of the skew */
-  transform-origin: 0% 0%;
-  z-index: -1;
-  overflow: hidden;
-}
-
-.home-coverage-container {
-  width: 100%;
-  background: #afafaf;
-  padding: 4em 0 4em;
-}
-
-/* Mission content */
-.home-content-left, 
-.home-content-right {
-  background-color: inherit;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  color: white;
-  height: 100%;           /* Allow cards to expand based on content */
-  max-width: 90%;
-  margin: 0 auto;
-}
-
-.home-content-left ul,
-.home-content-right ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0;
-}
-
-.home-content-left img,
-.home-content-right img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  height: auto;
-  padding: 10px;
-  object-fit: contain;
-}
-
-.home-content-left p,
-.home-content-right p {
-  padding: 2% 0;
-  text-align: left;
-  margin: 10px 0;
-}
-
-.home-content-left hr,
-.home-content-right hr {
-  color: #C4C4C4;
-}
-
-
-
-
-/* ###################### */
-/* Gallery styles for mobile resolution */
-/* ############### */
-
-.article-header {
-  display: block;
-}
-/* Style the buttons */
-.gallery-btn {
-  border: none;
-  outline: none;
-  padding: 12px 16px;
-  background-color: white;
-  cursor: pointer;
-}
-
-/* Add a grey background color on mouse-over */
-.gallery-btn:hover {
-  background-color: #ddd;
-}
-
-/* Add a dark background color to the active button */
-.gallery-btn.active {
-  background-color: #666;
-  color: white;
-}
-
-.gallery-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;           /* Add space between columns */
-  padding: 8px;
-}
-
-/* Create up to three equal columns, initially hidden
-   to facilitate filtering */
-.gallery-column {
-  flex: 1 1 calc(100% - 16px);  /* 33.33% width minus gap */
-  display: none;
-}
-
-/* Individual content cards */
-.gallery-column-content {
-  background-color: white;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  box-sizing: border-box;
-  height: 100%;           /* Allow cards to expand based on content */
-  max-width: 70vw;
-  margin: 0 auto;
-}
-
-.gallery-column-content img {
-  max-width: 100%;
-  height: auto;
-  padding: 10px;
-  object-fit: contain;  /* Ensure the image fits within the container */
-  cursor: pointer;
-}
-
-.gallery-column-content h4, .gallery-column-content p {
-  margin: 10px 0;
-}
-
-/* Show filtered/selected content cards */
-.show-content {
-  display: block;
-}
-
-/* Gallery modal */
-.gallery-modal-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(94, 94, 94, 0.5);
-  z-index: 998;
-  backdrop-filter: blur(5px);
-}
-
-.gallery-modal {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(56, 62, 66, 0.4);
-  z-index: 999;
-  padding: 0;
-  box-sizing: border-box;
-  overflow: auto;
-  width: 90%;
-  height: 80%;
-  opacity: 0;
-  animation: fadeInModal 1s ease forwards;
-  text-align: center;
-}
-
-.gallery-modal-content {
-  max-width: 100%;
-  max-height: 100%;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
-.gallery-modal-close {
-  color: white;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  font-size: 30px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.gallery-modal-overlay.show {
-  display: block;
-}
-
-.gallery-modal.show {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@keyframes fadeInModal {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-
-
-
-/* ###################### */
-/* Footer styles for mobile resolution */
-/* ############### */
+/* ------------ Footer styles ------------ */
 
 #footer {
   margin-top: 20px;
@@ -437,9 +170,8 @@ header {
 
 
 
-/* ###################### */
-/* Styles for screens larger than mobile */
-/* ############### */
+/* ------------ Styles for Larger Screens ------------ */
+
 @media only screen and (min-width: 768px) {
 
   /* Header -- Change to site navigation menu */
@@ -450,52 +182,5 @@ header {
   .site-menu-items {
     display: flex;
     position: inherit;
-  }
-
-  /* Homepage -- Show two cards per row */
-  .home-content-left ul,
-  .home-content-right ul {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .home-content-left ul {
-    flex-direction: row-reverse;
-  }
-
-  .home-content-left li,
-  .home-content-right li {
-    flex: 1;
-    max-width: 45%;
-  }
-
-  /* Gallery -- Show two cards per row */
-  .gallery-column {
-    flex: 1 1 calc(50% - 16px);
-  }
-
-  /* Gallery -- Modal */
-  .gallery-modal {
-    width: 70%;
-    padding: 0;
-  }
-
-  .gallery-modal-content {
-    max-width: 90%;
-    max-height: 90%;
-  }
-
-  .gallery-modal-close {
-    top: 10px;
-    right: 10px;
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-
-  /* Gallery -- Show three cards per row */
-  .gallery-column {
-    flex: 1 1 calc(33.33% - 16px);
   }
 }
