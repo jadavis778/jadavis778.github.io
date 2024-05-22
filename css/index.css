@@ -11,8 +11,8 @@
 
 /* Create an image with parallax scrolling effect */
 .parallax {
-  background-image: url('../img/painting/paint_room.jpg');
-  height: 600px;    /* Set fixed height for the parallax section */
+  background-image: url('../img/home/parallax.jpg');
+  height: 1000px;    /* Set fixed height for the parallax section */
   width: 100%;
   background-attachment: fixed;
   background-position: center;

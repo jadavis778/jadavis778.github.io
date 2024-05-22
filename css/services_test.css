@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600');
+
+/* ####################################################
+   ------------ Services styles ------------
+   Strctured for tablet and larger screens first with  
+   mobile screens handled via media queries at the end
+   #################################################### */
+
+
+
+
+/* ------------ Page header styles ------------ */
+
+.article-header {
+  display: block;
+}
+
+
+
+
+/* ------------ Nav / Light box styles ------------ */
+
+.services-nav-wrapper {
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  width: 80%;
+}
+
+.services-list {
+  display: flex;
+  transition: transform 0.5s ease;
+  padding: 0;
+  margin: 0;
+  width: 100%; /* Ensure the list takes full width of the container */
+}
+
+.services-list li {
+  list-style: none;
+  position: relative;
+  flex: 1 0 50%;
+  max-width: 50%;
+  transition: all 0.3s ease;
+  padding: 0 10px; /* Add some padding around images */
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .services-list li {
+    flex: 1 0 100%;
+    max-width: 100%;
+  }
+
+  .lightbox-button {
+    margin-bottom: 2vh; /* Additional margin to add space below the button */
+  }
+}
+
+.services-list li img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover; /* Ensures the image covers the container without distortion */
+  aspect-ratio: 16/9; /* Use this to maintain a 16:9 aspect ratio */
+}
+
+.services-list li:hover .lightbox-overlay {
+  opacity: 1;
+}
+
+/* Style for the lightbox overlay to scale and fit within the image container */
+.lightbox-overlay {
+  position: absolute;
+  top: 0;         /* Match the padding of the image container */
+  left: 10px;     /* Match the padding of the image container */
+  right: 10px;    /* Match the padding of the image container */
+  bottom: 0;      /* Match the padding of the image container */
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  /*padding: 5%;
+  box-sizing: border-box;*/
+}
+
+.lightbox-title {
+  font-size: 3vh;      
+  position: absolute;
+  top: 0%;
+  padding: 4%;
+  margin: 0;
+}
+
+.lightbox-description {
+  font-size: 2vh;         
+  margin-bottom: 2vh;
+  position: absolute;
+  padding: 0 0;
+}
+
+.lightbox-button {
+  background-color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 2vh; /* Font size relative to viewport height */
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0%;
+  padding: 0.4vh 1vh; /* Padding based on viewport height for better scaling */
+  margin-bottom: 1vh; /* Additional margin to add space below the button */
+}
+
+.lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+  transition: background 0.3s ease;
+}
+
+.lightbox-arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.left-arrow {
+  left: 0;
+}
+
+.right-arrow {
+  right: 0;
+}
+
+
+
+
+/* ------------ Content styles ------------ */
+
+.services-spotlight-wrapper {
+  margin-top: 20%;
+}
+
+/* Individual services */
+.row {
+  display: flex;
+  border-top: 1px solid #e2e2e2;
+  min-height: 30vh;
+}
+
+.img-right {
+  flex-direction: row-reverse;
+}
+
+.img-wrapper {
+  flex: 0 0 40%;   /* Take up 1/3 of screen width */
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: auto;
+}
+
+.text-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 4vw;
+}
+
+.text-wrapper h2 {
+  margin: 0 0 1vh 0;
+}
+
+.row-button {
+  display: inline-block;
+  text-decoration: none;
+  color: rgb(135, 143, 150);
+  font-weight: bold;
+  font-size: .9em;
+  border-radius: 26px;
+  text-align: center;
+  padding: 14px 24px;
+  border: 1px solid rgb(144, 156, 163);
+  background-color: rgba(255, 255, 255, 0);
+  transition: border-color 0.3s ease, color 0.3s ease;  /* Transition for hover effect */
+} 
+
+.row-button:hover {
+  border-color: rgb(110, 180, 220);
+  color: rgb(110, 180, 220);
+}
+
+
+
+
+/* ------------ Styles for Mobile Screens ------------ */
+
+@media only screen and (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .text-wrapper {
+    padding: 4vh 4vw 8vh;
+  }
+
+  .text-wrapper h2 {
+    text-align: center;
+  }
+
+  .text-details {
+    padding-bottom: 2vh;
+  }
+
+  .row-button {
+    display: flex;
+    justify-content: center;
+    margin: 0 10vw;
+  }
+}
